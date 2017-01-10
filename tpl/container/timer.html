@@ -1,0 +1,10 @@
+<script id="container__timer" type="text/html">
+  <a class="icon clock" id="timer_time">
+    <p class="clockpos">${timer.get('hour')}:${timer.get('min')}:${timer.get('sec')}</p>
+  </a>
+  <a class="icon calendar" id="timer_date">
+    <span class="calendarspan" title="${timer.get('day')} ${timer.get('monthS')} ${timer.get('year')} ${timer.get('dayS')}">
+      ${timer.get('day')} ${timer.get('monthS')}<br>${timer.get('year')}<br>${timer.get('dayS')}
+    </span>
+  </a>
+</script>

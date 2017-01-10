@@ -1,0 +1,12 @@
+<script id="container__main_menu" type="text/html">
+  {%each(i,v) list%}
+    <a href="${v.href}" class="icon ${v.class} {%if v.is_active%}active{%/if%}" title="${v.name}"></a>
+  {%/each%}
+  <div class="mainlogo">
+		<div class="loginprev" id="loginprev">
+			<div class="loginavatar"></div>
+			<span>admin</span>
+		</div>
+		<a href="/about/"><img src="" class="imgpages"></a>
+	</div>
+</script>

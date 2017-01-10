@@ -1,10 +1,19 @@
+const PATHApp = "/dev/simplePage/"
+const PATHtpl = PATHApp + "tpl/"
+const PATHjs  = PATHApp + "js/public/"
+
+var Router,Backbone,$
+
 requirejs.config({
     paths:{
-        jquery      : './jquery'      ,
-        underscore  : './underscore'  ,
-        backbone    : './backbone'    ,
-        tmpl        : './tmpl'        ,
-        model       : './model'        ,
+        jquery      : './js/core/jquery'      ,
+        underscore  : './js/core/underscore'  ,
+        backbone    : './js/core/backbone'    ,
+        tmpl        : './js/core/tmpl'        ,
+        text        : './js/core/text'        ,
+        model       : './js/core/model'       ,
+        templates   : './js/core/templates'   ,
+        containers  : './js/core/containers'  ,
     },
     shim: {
         jquery: {
@@ -24,145 +33,60 @@ requirejs.config({
         },
         model: {
           deps: ["backbone"]
-        }
+        },
+        templates: {
+          deps: ["backbone","jquery"]
+        },
+        containers: {
+          deps: ["backbone","jquery"]
+        },
     },
-    //~ urlArgs : "bust="+new Date().getTime()
+    baseUrl : PATHApp
 });
 
-const PATHtpl = "./../../tpl"
-const PATHjs  = "./../../js/public"
-
 var App = {
-    Views : {}
-  }
+  Views : {}
+}
 
-require(['jquery', 'underscore', 'backbone','tmpl' , 'model'], function ( $ , _ , Backbone ) {
-  
-  $.fn.Append = function( args ){
-    if( $(args).attr('id') ){
-      if( $('#' + $(args).attr('id')).length ){
-        return false;
-      }
-    }
-    $(this).append( $(args) )
-  }
-  
-  Backbone.Router.prototype.before = function () {};
-  Backbone.Router.prototype.after = function () {};
-
-  Backbone.Router.prototype.route = function (route, name, callback) {
-    if (!_.isRegExp(route)) route = this._routeToRegExp(route);
-    if (_.isFunction(name)) {
-      callback = name;
-      name = '';
-    }
-    if (!callback) callback = this[name];
-
-    var router = this;
-
-    Backbone.history.route(route, function(fragment) {
-      var args = router._extractParameters(route, fragment);
-
-      router.before.apply(router, arguments);
-      callback && callback.apply(router, args);
-      router.after.apply(router, arguments);
-
-      router.trigger.apply(router, ['route:' + name].concat(args));
-      router.trigger('route', name, args);
-      Backbone.history.trigger('route', router, name, args);
-    });
-    return this;
-  };
+require(['jquery', 'underscore', 'backbone','tmpl' , 'model' , 'templates' , 'containers'], function ( $ , _ , Backbone ) {
   
   
   var AppRouter = Backbone.Router.extend({
-    
       
       routes: {
-        ''      : 'index' ,
-        'place' : 'place',
-        'converter' : 'converter',
-        'meter' : 'meter',
-      },
-
-      before: function () {
-        $('#page').empty()
-      },
-      
-      after : function(){
-        //~ console.log('after')
+        ''          : 'auth'      ,
+        '#'         : 'auth'      ,
+        'place'     : 'place'     ,
+        'converter' : 'converter' ,
+        'meter'     : 'meter'     ,
+        'logout'    : 'logout'    ,
       },
       
       
-      index: function() {
-        require([
-          "text!./../../tpl/templates/place_left.html",
-          "text!./../../tpl/index.html",
-        ],
-          function( templates , content ) {
-            
-            $('body').append( templates )
-            $('body').append( content )
-            require([PATHjs  + "/index"] , function( res ){
-              res()
-            });
-          }
-        )
+      auth: function() {
+        TemplatesAuth()
       },
       
       place : function() {
-        require([
-          "text!./../../tpl/templates/place_left.html",
-          "text!./../../tpl/index.html",
-        ],
-          function( templates , content ) {
-            
-            $('body').append( templates )
-            $('body').append( content )
-            require([PATHjs  + "/place/index"] , function( res ){
-              res()
-            });
-          }
-        )
+        MenuCollect.get("place").setActive()
+        TemplatesPlaceList()
       },
-      
       
       converter : function() {
-        require([
-          "text!./../../tpl/templates/place_left.html",
-          "text!./../../tpl/index.html",
-        ],
-          function( templates , content ) {
-            
-            $('body').append( templates )
-            $('body').append( content )
-            require([PATHjs  + "/converter/index"] , function( res ){
-              res()
-            });
-          }
-        )
+        MenuCollect.get("converter").setActive()
+        //~ TemplatesPlaceList()
       },
       
+      logout : function(){
+        //~ Router.navigate('', {trigger: true,replace: true})
+        window.location.hash = ""
+      }
       
-      meter : function() {
-        require([
-          "text!./../../tpl/templates/place_left.html",
-          "text!./../../tpl/index.html",
-        ],
-          function( templates , content ) {
-            
-            $('body').append( templates )
-            $('body').append( content )
-            require([PATHjs  + "/meter/index"] , function( res ){
-              res()
-            });
-          }
-        )
-      },
+      
       
       
   });
-  new AppRouter();
-  Backbone.history.start({ root: "/dev/simplePage/" });
+  Router = new AppRouter();
+  Backbone.history.start({ root: PATHApp });
     
 });

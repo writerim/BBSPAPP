@@ -1,0 +1,11 @@
+<script id="container__main_breads" type="text/html">
+  {%each(i,v) list%}
+    {%if v.href != ""%}
+      <a href="${v.href}">
+    {%/if%}
+    ${title}
+    {%if v.href != ""%}
+      </a>
+    {%/if%}
+  {%/each%}
+</script>
