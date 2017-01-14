@@ -1,0 +1,40 @@
+<script id="main_converter_table_tpl" type="text/html">
+  <table>
+    {%if converters.length == 0%}
+      <tr>
+        <td colspan="6">Нет ни одного конвертора</td>
+      </tr>
+    {%else%}
+      <thead>
+        <tr>
+          <th></th>
+          <th></th>
+          <th>Название</th>
+          <th>Дочерних</th>
+        </tr>
+      </thead>
+      <tbody>
+        {%each(i,pl) converters%}
+          <tr>
+            <td class="edit_place" id="main_place_table__edit_${pl.get('id')}">
+              [ / ]&nbsp;
+            </td>
+            <td class="delete_place" id="main_place_table_${pl.get('id')}">
+              [ {%if pl.childrenCount() > 0%}-{%else%}x{%/if%} ]&nbsp;
+            </td>
+            <td>
+              <a href="${pl.getLink()}">${pl.get('title')}</a>
+            </td>
+            <td>
+              ${pl.childrenCount()}
+            </td>
+          </tr>
+        {%/each%}
+      </tbody>
+    {%/if%}
+    <tr>
+      <td colspan="6"><button id="add_place">+</button></td>
+    </tr>
+
+  </table>
+</script>

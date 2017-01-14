@@ -13,6 +13,7 @@ MenuLists = new MenuLists()
 // Синхронизация
 MenuLists.add([
   {name : "Места" ,href : "place"},
+  {name : "Конверторы" ,href : "converter"},
   {name : "Выйти" , href : ""},
 ])
 
@@ -34,6 +35,19 @@ var PlaceModel = Backbone.Model.extend({
     return Places.findWhere({ id : Number(this.get('place')) })
   }
 })
+
+var ConverterModel = Backbone.Model.extend({
+  defaults : {
+    title : "",
+    id : 0
+  }
+})
+
+var ConverterCollect = Backbone.Collection.extend({
+  model : ConverterModel
+})
+var Converters = new ConverterCollect()
+
 
 var PlacesCollect = Backbone.Collection.extend({
   model : PlaceModel
