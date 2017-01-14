@@ -36,6 +36,10 @@ requirejs.config({
         main_converter_table: './js/public/converter/main_converter_table',// Конверторы таблица
         converter_modal_add : './js/public/converter/converter_modal_add',// Конверторы таблица
         converter_modal_delete : './js/public/converter/converter_modal_delete',// Конверторы таблица
+        converter_every     : './js/public/converter/converter_every',// Конверторы таблица
+        meter_list          : './js/public/converter/meter_list',// Конверторы таблица
+
+        meter_add_modal      : './js/public/meter/add_modal',// Конверторы таблица
 
     },
     shim: {
@@ -85,6 +89,7 @@ require(['jquery', 'underscore', 'backbone','tmpl'  , 'ui' , '404'], function ( 
         'place'           : 'place'     ,
         'place/:id/'      : 'place_every'     ,
         'converter'       : 'converter' ,
+        'converter/:id/'   : 'converter_every' ,
         'meter'           : 'meter'     ,
         'logout'          : 'logout'    ,
         '404'             : 'Error404'    ,
@@ -121,7 +126,14 @@ require(['jquery', 'underscore', 'backbone','tmpl'  , 'ui' , '404'], function ( 
             new d()
           })
         })
+      },
 
+      converter_every : function(id){
+        $(document).ready(function(){
+          require(['converter_every'],function(d){
+            new d({ model : Converters.get(id)})
+          })
+        })
       },
 
       logout : function(){

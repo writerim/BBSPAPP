@@ -1,0 +1,31 @@
+<script id="meter_list_tpl" type="text/html">
+  <table>
+  {%if meters.length == 0%}
+    <tr>
+      <td colspan="6">Нет приборов учета</td>
+    </tr>
+  {%else%}
+    <thead>
+      <tr>
+        <th></th>
+        <th></th>
+        <th>Название</th>
+      </tr>
+    </thead>
+    {%each(i,meter) meters%}
+      <tr>
+        <td><button class="edit_meter" id="edit_modal_${meter.get('id')}">/</button></td>
+        <td><button class="delete_meter" id="delete_modal_${meter.get('id')}">x</button></td>
+        <td>
+          <a href="${meter.getLink()}">${meter.get('title')}</a>
+        </td>
+      </tr>
+    {%/each%}
+  {%/if%}
+  <tr>
+    <td colspan="6">
+      <button id="add_meter">+</button>
+    </td>
+  </tr>
+  </table>
+</script>
