@@ -1,7 +1,7 @@
 define([
   "text!./tpl/converter/main_converter_table.html",
   "converter_modal_add",
-  //~ "place_modal_delete",
+  "converter_modal_delete",
   ],function( tpl , modal , del ){
 
   $('body').append( $(tpl) )
@@ -18,11 +18,11 @@ define([
     collection : Converters,
     model : ConverterModel,
     events : {
-      'click .delete_place' : function( e ){
-        var id = Number( $(e.target).attr('id').replace('main_place_table_','') )
+      'click .delete_converter' : function( e ){
+        var id = Number( $(e.target).attr('id').replace('main_converter_table_','') )
         new del({model : this.collection.find({ id : id}) })
       },
-      'click #add_place' : function(){
+      'click #add_converter' : function(){
         new modal({model : this.model});
       }
     },

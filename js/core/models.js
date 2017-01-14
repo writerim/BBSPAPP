@@ -40,7 +40,13 @@ var ConverterModel = Backbone.Model.extend({
   defaults : {
     title : "",
     id : 0
-  }
+  },
+  childrenCount : function(){
+    return 0;
+  },
+  getLink : function(){
+    return "#converter/" + this.get('id')+"/"
+  },
 })
 
 var ConverterCollect = Backbone.Collection.extend({

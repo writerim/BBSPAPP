@@ -16,10 +16,10 @@
       <tbody>
         {%each(i,pl) converters%}
           <tr>
-            <td class="edit_place" id="main_place_table__edit_${pl.get('id')}">
+            <td class="edit_converter" id="main_converter_table__edit_${pl.get('id')}">
               [ / ]&nbsp;
             </td>
-            <td class="delete_place" id="main_place_table_${pl.get('id')}">
+            <td class="delete_converter" id="main_converter_table_${pl.get('id')}">
               [ x ]&nbsp;
             </td>
             <td>
@@ -30,7 +30,7 @@
       </tbody>
     {%/if%}
     <tr>
-      <td colspan="6"><button id="add_place">+</button></td>
+      <td colspan="6"><button id="add_converter">+</button></td>
     </tr>
 
   </table>

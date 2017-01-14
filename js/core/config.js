@@ -35,6 +35,7 @@ requirejs.config({
         converter_list      : './js/public/converter/index',              // Конверторы
         main_converter_table: './js/public/converter/main_converter_table',// Конверторы таблица
         converter_modal_add : './js/public/converter/converter_modal_add',// Конверторы таблица
+        converter_modal_delete : './js/public/converter/converter_modal_delete',// Конверторы таблица
 
     },
     shim: {
