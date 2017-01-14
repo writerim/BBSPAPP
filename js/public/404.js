@@ -1,14 +1,12 @@
 define([
-  "text!./tpl/place/index.html",
-  "menu_item_tpl",
-  "main_place_table",
-  ],function( tpl , mm , table ){
+  "text!./tpl/404.html",
+  ],function( tpl ){
 
   $('body').append( $(tpl) )
 
   var f = Backbone.View.extend({
     el : '#page',
-    template : '#place_tpl',
+    template : '#404_tpl',
     initialize : function(){
       this.render()
     },
@@ -16,8 +14,6 @@ define([
       $( this.$el ).empty().append(
         $(this.template).tmpl()
       )
-      new mm();
-      new table();
     }
   })
 

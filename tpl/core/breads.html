@@ -1,0 +1,11 @@
+<script id="breads_tpl" type="text/html">
+  {%each(i,p) list%}
+    {%if typeof p != "undefined"%}
+      {%if p instanceof Backbone.Model%}
+        <a href="${p.getLink()}">${p.get('title')}</a> /
+      {%else%}
+        <a href="${p.href}">${p.title}</a> /
+      {%/if%}
+    {%/if%}
+  {%/each%}
+</script>

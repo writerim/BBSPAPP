@@ -1,23 +1,22 @@
-define([
-  "text!./tpl/place/index.html",
-  "menu_item_tpl",
-  "main_place_table",
-  ],function( tpl , mm , table ){
+define(["text!./tpl/auth.html"],function( tpl ){
 
   $('body').append( $(tpl) )
 
   var f = Backbone.View.extend({
     el : '#page',
-    template : '#place_tpl',
+    template : '#auth_tpl',
     initialize : function(){
       this.render()
+    },
+    events : {
+      'click #login' : function(){
+        Router.navigate('#place',Router.place())
+      }
     },
     render : function(){
       $( this.$el ).empty().append(
         $(this.template).tmpl()
       )
-      new mm();
-      new table();
     }
   })
 

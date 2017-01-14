@@ -1,0 +1,173 @@
+*{
+    box-sizing: border-box;
+}
+
+ul#menu {
+    display: inline-block;
+    margin: 0;
+    height: 300px;
+    width: 32px;
+    padding: 5px;
+}
+
+ul#menu li {
+    width: 32px;
+    height: 32px;
+    display: block;
+    margin-bottom: 8px;
+    text-align: center;
+    padding: 5px;
+    color: #fff;
+}
+
+li#add_plus {
+    background: #00EE76;
+    border : 1px solid #00d268;
+}
+
+.dialog_plus .ui-dialog-titlebar {
+    background: #00EE76;
+    color:#fff;
+}
+
+li#add_plus:hover {
+    background: #00d268;
+}
+
+li#add_minus {
+    background: #EE6363;
+    border : 1px solid #da5656;
+}
+
+li#equals:hover {
+    background: #9c27b0;
+}
+
+li#equals {
+    background: #ab47bc;
+    border : 1px solid #9c27b0;
+}
+
+.dialog_equals .ui-dialog-titlebar {
+    background: #ab47bc;
+    color:#fff;
+}
+
+.dialog_minus .ui-dialog-titlebar {
+    background: #EE6363;
+    color:#fff;
+}
+
+li#add_minus:hover {
+    background: #da5656;
+}
+
+li#add_purpose {
+    background: gold;
+    border : 1px solid #eac600;
+}
+
+.dialog_purpose .ui-dialog-titlebar {
+    background: gold;
+    color:#fff;
+}
+
+li#add_purpose:hover {
+    background: #eac600;
+}
+
+li#history {
+    background: #BEBEBE;
+    border : 1px solid #a7a6a6;
+}
+
+.dialog_history .ui-dialog-titlebar {
+    background: #BEBEBE;
+    color:#fff;
+}
+
+li#history:hover {
+    background: #a7a6a6;
+}
+
+li#settings {
+    background: #6495ED;
+    border : 1px solid #517ed0;
+}
+
+.dialog_settings .ui-dialog-titlebar {
+    background: #6495ED;
+    color:#fff;
+}
+
+li#settings:hover {
+    background: #517ed0;
+}
+
+li#info {
+    background: #AEEEEE;
+    border : 1px solid #96d8d8;
+}
+
+.dialog_info .ui-dialog-titlebar {
+    background: #AEEEEE;
+    color:#fff;
+}
+
+li#info:hover {
+    background: #96d8d8;
+}
+
+ul#menu li:hover{
+    cursor:pointer;
+}
+
+ul#menu li:active {
+    box-shadow: inset 1px 1px 4px -1px #000;
+}
+
+div#error_container {
+    position: absolute;
+    z-index: 9999;
+    width: 600px;
+    max-height: 300px;
+}
+
+.alert.alert-danger.fade.in {
+    margin: 0px;
+}
+
+.error_msg:after {
+    position: absolute;
+    border: 6px solid;
+    content: " ";
+    bottom: -12px;
+        z-index: 25;
+    left: 50%;
+    border-color: rgba(255, 0, 0, 0.56) transparent transparent transparent;
+}
+.error_msg {
+    background: rgba(255, 0, 0, 0.56);
+    padding: 2px;
+    text-align: center;
+    color: #fff;
+    position: relative;
+    width: 400px;
+    margin-left: 83px;
+    border-radius: 3px;
+}
+
+.ui-front-error {
+    background: #FF5722;
+}
+
+.form-control{
+  height: 30px !important;
+  padding: 3px 12px !important;
+}
+
+.bnr{
+  width : 100%;
+  height : 100px;
+  background : lightgrey;
+}

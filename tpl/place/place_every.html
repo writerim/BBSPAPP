@@ -1,8 +1,10 @@
-<script id="place_tpl" type="text/html">
+<script id="place_every" type="text/html">
   <div id="main_menu_container"></div>
 
-  <h1>Места</h1>
-
+  {%if typeof Place != "undefined"%}
+    <h1>${Place.get('title')}</h1>
+  {%/if%}
+  <div id="breads"></div>
   <div id="table_all_places"></div>
   <div id="modal_place_add"></div>
   <div id="place_modal_delete"></div>

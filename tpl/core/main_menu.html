@@ -1,0 +1,8 @@
+<script id="main_menu" type="text/html">
+  <ul>
+    {%each(i,item) list%}
+      <li>
+        <a href="#${item.get('href')}">${item.get('name')}</a></li>
+    {%/each%}
+  </ul>
+</script>
