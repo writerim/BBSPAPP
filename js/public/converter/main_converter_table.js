@@ -1,6 +1,6 @@
 define([
   "text!./tpl/converter/main_converter_table.html",
-  //~ "place_modal_add",
+  "converter_modal_add",
   //~ "place_modal_delete",
   ],function( tpl , modal , del ){
 
@@ -15,8 +15,8 @@ define([
       this.listenTo( this.collection , 'add' , this.render )
       this.render()
     },
-    collection : Places,
-    model : PlaceModel,
+    collection : Converters,
+    model : ConverterModel,
     events : {
       'click .delete_place' : function( e ){
         var id = Number( $(e.target).attr('id').replace('main_place_table_','') )

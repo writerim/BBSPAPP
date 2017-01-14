@@ -20,13 +20,10 @@
               [ / ]&nbsp;
             </td>
             <td class="delete_place" id="main_place_table_${pl.get('id')}">
-              [ {%if pl.childrenCount() > 0%}-{%else%}x{%/if%} ]&nbsp;
+              [ x ]&nbsp;
             </td>
             <td>
               <a href="${pl.getLink()}">${pl.get('title')}</a>
-            </td>
-            <td>
-              ${pl.childrenCount()}
             </td>
           </tr>
         {%/each%}
