@@ -32,6 +32,7 @@ requirejs.config({
         place_modal_add     : './js/public/place/place_modal_add',        // модальное окно плейсов
         place_modal_delete  : './js/public/place/place_modal_delete',     // модальное окно для удаления плейсов
         place_every         : './js/public/place/place_every',            // Вывод каждого плейса
+        place_tree         : './js/public/place/place_tree',            // Вывод каждого плейса
 
         converter_list      : './js/public/converter/index',              // Конверторы
         main_converter_table: './js/public/converter/main_converter_table',// Конверторы таблица
@@ -72,6 +73,9 @@ requirejs.config({
         },
         404 : {
           deps : ["tmpl"]
+        },
+        place_tree : {
+          deps : ["jstree"]
         },
         menu_item_tpl : {
           exports: "MainMenuView"

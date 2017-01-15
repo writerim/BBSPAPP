@@ -2,7 +2,9 @@ define([
   "text!./tpl/place/index.html",
   "menu_item_tpl",
   "main_place_table",
-  ],function( tpl , mm , table ){
+  "place_tree",
+  "jstree"
+  ],function( tpl , mm , table , tree ){
 
   $('body').append( $(tpl) )
 
@@ -18,6 +20,7 @@ define([
       )
       new mm();
       new table();
+      new tree()
     }
   })
 
