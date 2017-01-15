@@ -3,7 +3,8 @@ define([
   "menu_item_tpl",
   "main_place_table",
   "breads",
-  ],function( tpl , mm , place_list , breads ){
+  "place_tree"
+  ],function( tpl , mm , place_list , breads , tree ){
 
   $('body').append( $(tpl) )
 
@@ -27,6 +28,7 @@ define([
       new breads( [ this.model.getParent() ] )
       new mm()
       new place_list({model : this.model })
+      new tree({ model : this.model })
     }
   })
 
