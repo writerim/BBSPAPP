@@ -85,3 +85,4 @@ Places = new PlacesCollect()
 
 Places.add([{"id":5,"title":"child","place":3},{"place":0,"title":"1","id":1484383192619},{"place":0,"title":"2","id":1484383206367},{"place":0,"title":"3","id":1484383208958},{"place":0,"title":"4","id":1484383211785},{"place":1484383192619,"title":"1.1","id":1484383216966},{"place":1484383192619,"title":"1.2","id":1484383220949},{"place":1484383192619,"title":"1.3","id":1484383225606},{"place":1484383192619,"title":"1.4","id":1484383229559},{"place":1484383216966,"title":"1.1.1","id":1484383236237},{"place":1484383216966,"title":"1.1.2","id":1484383241412}])
 Converters.add([{"title":"qqqq","id":1484413137663,"ip":"","port":""}])
+Meters.add([{id:1484469244191 , converter : 1484413137663 , title : "wwwww"}])

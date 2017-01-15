@@ -41,6 +41,7 @@ requirejs.config({
 
         meter_add_modal      : './js/public/meter/add_modal',// Конверторы таблица
         meter_del_modal      : './js/public/meter/meter_del_modal',// Конверторы таблица
+        meter_every          : './js/public/meter/meter_every',// Конверторы таблица
 
     },
     shim: {
@@ -90,8 +91,8 @@ require(['jquery', 'underscore', 'backbone','tmpl'  , 'ui' , '404'], function ( 
         'place'           : 'place'     ,
         'place/:id/'      : 'place_every'     ,
         'converter'       : 'converter' ,
-        'converter/:id/'   : 'converter_every' ,
-        'meter'           : 'meter'     ,
+        'converter/:id/'  : 'converter_every' ,
+        'meter/:id/'      : 'meter_every'     ,
         'logout'          : 'logout'    ,
         '404'             : 'Error404'    ,
       },
@@ -137,7 +138,12 @@ require(['jquery', 'underscore', 'backbone','tmpl'  , 'ui' , '404'], function ( 
         })
       },
 
-      logout : function(){
+      meter_every : function(id){
+        $(document).ready(function(){
+          require(['meter_every'],function(d){
+            new d({ model : Meters.get(id)})
+          })
+        })
       },
 
       Error404 : function(){
