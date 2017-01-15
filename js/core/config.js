@@ -18,6 +18,7 @@ requirejs.config({
         tmpl                : './js/core/tmpl'          ,
         text                : './js/core/text'          ,
         ui                  : './js/core/jquery.ui',
+        jstree              : './js/core/jstree',
 
         404                 : './js/public/404',
 
@@ -65,6 +66,9 @@ requirejs.config({
         backbone: {
           deps: ["underscore", "jquery"],
           exports: "Backbone"
+        },
+        jstree : {
+          deps : ["jquery"]
         },
         404 : {
           deps : ["tmpl"]

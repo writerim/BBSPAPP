@@ -2,6 +2,7 @@ define([
   "text!./tpl/meter/meter_every.html",
   "menu_item_tpl",
   "breads",
+  "jstree"
   ],function( tpl , mm , breads ){
 
   $('body').append( $(tpl) )
