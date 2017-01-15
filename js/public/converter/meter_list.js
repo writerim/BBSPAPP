@@ -1,7 +1,8 @@
 define([
   "text!./tpl/converter/meter_list.html",
-  "meter_add_modal"
-  ],function( tpl , add_modal ){
+  "meter_add_modal",
+  "meter_del_modal",
+  ],function( tpl , add_modal , del_modal ){
 
   $('body').append( $(tpl) )
 
@@ -17,8 +18,8 @@ define([
       'click #add_meter' : function(){
         new add_modal({ model : this.model })
       },
-      'click .delete_meter' : function(){
-        console.log( 111 )
+      'click .delete_meter' : function( e ){
+        new del_modal({ model : Meters.find({ id : Number($(e.target).attr('id').replace('delete_modal_',"")) }) })
       }
     },
     render : function(){

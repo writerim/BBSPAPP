@@ -40,6 +40,7 @@ requirejs.config({
         meter_list          : './js/public/converter/meter_list',// Конверторы таблица
 
         meter_add_modal      : './js/public/meter/add_modal',// Конверторы таблица
+        meter_del_modal      : './js/public/meter/meter_del_modal',// Конверторы таблица
 
     },
     shim: {
