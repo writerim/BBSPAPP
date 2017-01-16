@@ -91,6 +91,21 @@ var PlacesCollect = Backbone.Collection.extend({
 Places = new PlacesCollect()
 
 
+var UserModel = Backbone.Model.extend({
+  defaults : {
+    id : 0,
+    login : 0,
+    is_active : 0
+  },
+  idAttribute : "id"
+})
+
+var UserCollection = Backbone.Collection.extend({
+  model : UserModel
+})
+var Users = new UserCollection();
+
+
 // Синхронизация
 MenuLists.add([
   {name : "Места" ,href : "place"},
@@ -109,3 +124,10 @@ MenuLists.add([
 Places.add([{"place":0,"title":"1","id":1484383192619},{"place":0,"title":"2","id":1484383206367},{"place":0,"title":"3","id":1484383208958},{"place":0,"title":"4","id":1484383211785},{"place":1484383192619,"title":"1.1","id":1484383216966},{"place":1484383192619,"title":"1.2","id":1484383220949},{"place":1484383192619,"title":"1.3","id":1484383225606},{"place":1484383192619,"title":"1.4","id":1484383229559},{"place":1484383216966,"title":"1.1.1","id":1484383236237},{"place":1484383216966,"title":"1.1.2","id":1484383241412}])
 Converters.add([{"title":"qqqq","id":1484413137663,"ip":"","port":""}])
 Meters.add([{id:1484469244191 , converter : 1484413137663 , title : "wwwww"}])
+
+
+Users.add([
+  {id : 1 , login : "admin" , is_active : true},
+  {id : 2 , login : "guest" , is_active : true},
+  {id : 3 , login : "test" , is_active : false},
+])

@@ -48,6 +48,7 @@ requirejs.config({
         meter_every          : './js/public/meter/meter_every',// Конверторы таблица
 
         user_list          : './js/public/user/user_list',// Конверторы таблица
+        user_table          : './js/public/user/user_table',// Конверторы таблица
 
         group_list          : './js/public/group/group_list',// Конверторы таблица
 

@@ -1,7 +1,8 @@
 define([
   "text!./tpl/user/user_list.html",
   "menu_item_tpl",
-],function( tpl , mm ){
+  "user_table",
+],function( tpl , mm , table ){
 
   $('body').append( $(tpl) )
 
@@ -16,6 +17,7 @@ define([
         $(this.template).tmpl()
       )
       new mm();
+      new table({ collection : Users });
     }
   })
 
