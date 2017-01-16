@@ -32,7 +32,9 @@ requirejs.config({
         place_modal_add     : './js/public/place/place_modal_add',        // модальное окно плейсов
         place_modal_delete  : './js/public/place/place_modal_delete',     // модальное окно для удаления плейсов
         place_every         : './js/public/place/place_every',            // Вывод каждого плейса
-        place_tree         : './js/public/place/place_tree',            // Вывод каждого плейса
+        place_tree          : './js/public/place/place_tree',            // Вывод каждого плейса
+
+        maps_list           : './js/public/maps/maps_list',            // Вывод каждого плейса
 
         converter_list      : './js/public/converter/index',              // Конверторы
         main_converter_table: './js/public/converter/main_converter_table',// Конверторы таблица
@@ -44,6 +46,14 @@ requirejs.config({
         meter_add_modal      : './js/public/meter/add_modal',// Конверторы таблица
         meter_del_modal      : './js/public/meter/meter_del_modal',// Конверторы таблица
         meter_every          : './js/public/meter/meter_every',// Конверторы таблица
+
+        user_list          : './js/public/user/user_list',// Конверторы таблица
+
+        group_list          : './js/public/group/group_list',// Конверторы таблица
+
+        rule_list          : './js/public/rule/rule_list',// Конверторы таблица
+
+        virtconverter_list          : './js/public/virtconverter/virtconverter_list',// Конверторы таблица
 
     },
     shim: {
@@ -97,10 +107,15 @@ require(['jquery', 'underscore', 'backbone','tmpl'  , 'ui' , '404'], function ( 
         ''                : 'auth'      ,
         '#'               : 'auth'      ,
         'place'           : 'place'     ,
+        'maps'            : 'maps'     ,
         'place/:id/'      : 'place_every'     ,
         'converter'       : 'converter' ,
+        'virtconverter'       : 'virtconverter' ,
         'converter/:id/'  : 'converter_every' ,
         'meter/:id/'      : 'meter_every'     ,
+        'user'            : 'user'     ,
+        'group'            : 'group'     ,
+        'rule'            : 'rule'     ,
         'logout'          : 'logout'    ,
         '404'             : 'Error404'    ,
       },
@@ -114,9 +129,41 @@ require(['jquery', 'underscore', 'backbone','tmpl'  , 'ui' , '404'], function ( 
         })
       },
 
+      user: function() {
+        $(document).ready(function(){
+          require(['user_list'],function(d){
+            new d()
+          })
+        })
+      },
+
+      group: function() {
+        $(document).ready(function(){
+          require(['group_list'],function(d){
+            new d()
+          })
+        })
+      },
+
+      virtconverter: function() {
+        $(document).ready(function(){
+          require(['virtconverter_list'],function(d){
+            new d()
+          })
+        })
+      },
+
       place : function() {
         $(document).ready(function(){
           require(['place_list'],function(d){
+            new d()
+          })
+        })
+      },
+
+      maps : function() {
+        $(document).ready(function(){
+          require(['maps_list'],function(d){
             new d()
           })
         })
@@ -149,6 +196,14 @@ require(['jquery', 'underscore', 'backbone','tmpl'  , 'ui' , '404'], function ( 
       meter_every : function(id){
         $(document).ready(function(){
           require(['meter_every'],function(d){
+            new d({ model : Meters.get(id)})
+          })
+        })
+      },
+
+      rule : function(id){
+        $(document).ready(function(){
+          require(['rule_list'],function(d){
             new d({ model : Meters.get(id)})
           })
         })

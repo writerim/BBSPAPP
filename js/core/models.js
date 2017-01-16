@@ -10,13 +10,6 @@ var MenuLists = Backbone.Collection.extend({
 })
 MenuLists = new MenuLists()
 
-// Синхронизация
-MenuLists.add([
-  {name : "Места" ,href : "place"},
-  {name : "Конверторы" ,href : "converter"},
-  {name : "Выйти" , href : ""},
-])
-
 
 var PlaceModel = Backbone.Model.extend({
   defaults : {
@@ -97,6 +90,21 @@ var PlacesCollect = Backbone.Collection.extend({
 })
 Places = new PlacesCollect()
 
+
+// Синхронизация
+MenuLists.add([
+  {name : "Места" ,href : "place"},
+  {name : "Карты" ,href : "maps"},
+  {name : "Конверторы" ,href : "converter"},
+  {name : "Виртуальные конверторы" ,href : "virtconverter"},
+  {name : "Математические конверторы" ,href : "calcconverter"},
+  {name : "Пользователи" ,href : "user"},
+  {name : "Группы" ,href : "group"},
+  {name : "Роли" ,href : "rule"},
+  {name : "Рассылки" ,href : "mail"},
+  {name : "Архивы" ,href : "archive"},
+  {name : "Выйти" , href : ""},
+])
 
 Places.add([{"place":0,"title":"1","id":1484383192619},{"place":0,"title":"2","id":1484383206367},{"place":0,"title":"3","id":1484383208958},{"place":0,"title":"4","id":1484383211785},{"place":1484383192619,"title":"1.1","id":1484383216966},{"place":1484383192619,"title":"1.2","id":1484383220949},{"place":1484383192619,"title":"1.3","id":1484383225606},{"place":1484383192619,"title":"1.4","id":1484383229559},{"place":1484383216966,"title":"1.1.1","id":1484383236237},{"place":1484383216966,"title":"1.1.2","id":1484383241412}])
 Converters.add([{"title":"qqqq","id":1484413137663,"ip":"","port":""}])
